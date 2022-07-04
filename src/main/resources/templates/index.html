@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Person</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="all-classes-container">
+    <div>
+        <div>
+            <h2>Person</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Birthdate</th>
+                        <th>Gender</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="person : ${persons}">
+                        <td th:text="${person.firstname}"></td>
+                        <td th:text="${person.lastname}"></td>
+                        <td th:text="${person.email}"></td>
+                        <td th:text="${person.birthDate}"></td>
+                        <td th:text="${person.gender}"></td>
+                        <td><a th:href="@{/edit/{id}(id=${person.id})}" class="btn btn-danger">Edit</a></td>
+                        <td><a th:href="@{/delete/{id}(id=${person.id})}" class="btn btn-primary">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="/signup" class="btn btn-primary btn-lg">Anmelden</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
